@@ -1,0 +1,92 @@
+*  {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+/*/////////////////////////////////////////////////////*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    height: 100vh;
+    background-color: #222;
+}
+/*/////////////////////////////////////////////////////*/
+body::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    background: linear-gradient(#00ff12, #0791ff);
+    z-index: 10;
+    inset: 0;
+}
+/*/////////////////////////////////////////////////////*/
+.circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff5,
+                        0 0 0 20PX #333,
+                        0 0 0 22PX #fff,
+                        0 0  50PX #fff,
+                        0 0  450PX #fff;
+}
+/*/////////////////////////////////////////////////////*/
+.circle::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(0deg, transparent, #fff);
+    transform-origin: bottom;
+    animation: animateNiddles 20s steps(60) infinite;
+    width: 2px;
+    height: 170px;
+}
+/*/////////////////////////////////////////////////////*/
+.circle::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(0deg, transparent, #fff);
+    transform-origin: bottom;
+    animation: animateNiddles 120s steps(60) infinite;
+    width: 4px;
+    height: 130px;
+}
+/*/////////////////////////////////////////////////////*/
+ul li {
+    position: absolute;
+    list-style: none;
+    font-family: consolas;
+    font-weight: bold;
+    text-transform: uppercase;
+    top: 10px;
+    transform-origin: 0 240px;
+    transform: rotate(calc(21deg * var(--i)));
+    font-size: 2.5em;
+}
+/*/////////////////////////////////////////////////////*/
+ul li span {
+    display: block;
+    color: #fff;
+    transform: rotate(calc(-21deg * var(--i)));
+    text-shadow: 0 0 15px #fff,
+    0 0 35px #fff,
+    0 0 75px #fff,
+    0 0 150px #fff; 
+}
+/*/////////////////////////////////////////////////////*/
+@keyframes animateNiddles {
+    0% {
+        transform:  translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform:  translate(-50%, -50%) rotate(360deg);
+    }
+}
+/*/////////////////////////////////////////////////////*/
